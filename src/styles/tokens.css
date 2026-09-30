@@ -1,0 +1,76 @@
+:root {
+  /* Ocean */
+  --ocean-surface: #BFE6FF;
+  --ocean-light:   #2E9BD6;
+  --ocean-mid:     #1F7FBF;
+  --ocean-deep:    #0E4A7A;
+  --ocean-abyss:   #072A4F;
+  --sun-warm:      #FFD9A0;
+
+  /* Cyberpunk accents (icebergs + project views; magenta <= ~10% of any surface) */
+  --neon-cyan:     #22E5FF;
+  --neon-blue:     #6898FF;   /* Accessible WCAG AA blue >= 4.5:1 */
+  --neon-magenta:  #FF3DC8;
+
+  /* Cyberpunk dark surfaces (project view) */
+  --cp-bg:         #05080F;
+  --cp-panel:      #0B1220;
+  --cp-line:       rgba(34, 229, 255, 0.28);
+  --silver:        #E6ECF5;
+  --silver-muted:  #9AA7BA;
+
+  /* Navy Scrim & Open Typography over Ocean */
+  --navy-scrim-start: rgba(7, 42, 79, 0.88);
+  --navy-scrim-mid:   rgba(7, 42, 79, 0.45);
+  --navy-scrim-end:   rgba(7, 42, 79, 0.0);
+
+  /* Glass */
+  --glass-bg:      rgba(255, 255, 255, 0.12);
+  --glass-bg-deep: rgba(6, 22, 44, 0.45);   /* use in Z3-Z5 for text contrast */
+  --glass-border:  rgba(255, 255, 255, 0.28);
+}
+
+/* Glassmorphism surface recipes */
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(3, 20, 45, 0.25);
+}
+
+.glass-surface-deep {
+  background: var(--glass-bg-deep);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(2, 10, 25, 0.45);
+}
+
+@supports not (backdrop-filter: blur(18px)) {
+  .glass-surface {
+    background: rgba(14, 74, 122, 0.85);
+  }
+  .glass-surface-deep {
+    background: rgba(7, 42, 79, 0.92);
+  }
+}
+
+/* Open Cinematic Typography Navy Scrim */
+.navy-scrim {
+  background: linear-gradient(135deg, var(--navy-scrim-start) 0%, var(--navy-scrim-mid) 55%, var(--navy-scrim-end) 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: 0 12px 36px rgba(4, 20, 40, 0.35);
+}
+
+/* Cyberpunk surfaces */
+.cp-panel {
+  background: var(--cp-panel);
+  border: 1px solid var(--cp-line);
+  box-shadow: 0 0 20px rgba(34, 229, 255, 0.08);
+}

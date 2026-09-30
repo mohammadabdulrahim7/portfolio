@@ -1,0 +1,70 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--ocean-deep);
+    color: var(--silver);
+    font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Default ocean background gradient for initial paint / fallback */
+  .ocean-gradient-fallback {
+    background: linear-gradient(
+      180deg,
+      #BFE6FF 0%,
+      #2E9BD6 15%,
+      #1F7FBF 40%,
+      #0E4A7A 70%,
+      #072A4F 100%
+    );
+  }
+
+  /* Visible focus ring (>= 3:1) for all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 3px;
+  }
+}
+
+/* Micro label utility */
+.micro-label {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 500;
+  font-size: clamp(11px, 0.75rem, 13px);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
